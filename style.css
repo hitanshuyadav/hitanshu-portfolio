@@ -648,6 +648,18 @@ strong {
     color: var(--clr-text-2);
 }
 
+.no-projects {
+    /* border: 2px solid red; */
+    text-align: center;
+}
+
+.no-projects p {
+    font-family: var(--font-mono);
+    font-size: large;
+    font-weight: 700;
+    color: var(--clr-text-3);
+}
+
 .wrapper-btns {
     /* border: 2px solid yellow; */
     margin: 2rem 0;
@@ -655,7 +667,7 @@ strong {
     justify-content: end;
 }
 
-.skills-content-box button {
+.wrapper-btns button {
     cursor: pointer;
 }
 
@@ -777,6 +789,7 @@ strong {
     color: var(--clr-text-2);
     font-family: var(--font-mono);
     font-size: small;
+    text-align: end;
 }
 
 .project-title {
@@ -875,5 +888,25 @@ hr {
 }
 
 .all-technical-projects {
-    border: 2px solid red;
+    /* border: 2px solid red; */
+    margin: 1rem 0;
 }
+
+#terraform-projects, #docker-projects, #serverless-projects, #cicd-projects {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.terraform-proj, .docker-proj {
+    /* border: 2px solid green; */
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
+}
+
+.technical-project-filling-line {
+    background-color: #0446763d;
+    padding: 1px;
+}
+
