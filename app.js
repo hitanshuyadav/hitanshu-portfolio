@@ -26,10 +26,12 @@ const switchProj = (i = 0) => {
             if (elem.children.length === 0) {
                 noProjectsDisplay.classList.remove("hidden");
                 viewMoreProjects.classList.add("hidden");
+                viewLessProjects.classList.add("hidden");
             }
             else if (elem.children.length < 4) {
                 noProjectsDisplay.classList.add("hidden");
                 viewMoreProjects.classList.add("hidden");
+                viewLessProjects.classList.add("hidden");
             }
             else {
                 noProjectsDisplay.classList.add("hidden");
