@@ -17,11 +17,16 @@
 </head>
 
 <body>
+    <div class="back-to-top">
+        <span class="material-symbols-outlined">
+            keyboard_arrow_up
+        </span>
+    </div>
     <div id="parent">
         <nav>
             <div class="content-alignment navigation-bar">
                 <div id="logo">
-                    <a href="#">Hitanshu<span>.</span></a>
+                    <a href="#">HY<span>.</span></a>
                 </div>
                 <div class="redirect-sections">
                     <div class="section-list">
@@ -32,7 +37,7 @@
                         <a href="#contact-section">Contact</a>
                     </div>
                     <div class="nav-shortcut-link">
-                        <a href="#">Connect</a>
+                        <a href="https://github.com/hitanshuyadav" target="_blank">GitHub -></a>
                     </div>
                 </div>
             </div>
@@ -323,7 +328,7 @@
             <div class="content-alignment">
                 <div class="section-heading">
                     <p class="glassy-tag-exp">PORTFOLIO</p>
-                    <h2><span>My </span><span>Projects</span></h2>
+                    <h2><span>My </span><span class="last-name">Projects</span></h2>
                     <p>A curated selection of cloud & DevOps work.</p>
                 </div>
                 <div class="major-projects">
@@ -690,7 +695,7 @@
                                         <a href="" class="project-redirect-github">GitHub</a>
                                     </div>
                                 </div>
-                                
+
 
                                 <!-- Add projects which are greater than 4 only (wrapper) -->
                                 <div class="extra-projects hidden">
@@ -704,11 +709,11 @@
 
                             <div class="techwise-projects" id="serverless-projects">
                                 <!-- Serverless Project 1 -->
-                                
-                                
+
+
                                 <!-- Add projects which are greater than 4 only (wrapper) -->
                                 <!-- <div class="extra-projects hidden"> -->
-                                    <!-- Serverless Project 5 -->
+                                <!-- Serverless Project 5 -->
 
 
                                 <!-- </div> -->
@@ -718,11 +723,11 @@
 
                             <div class="techwise-projects" id="cicd-projects">
                                 <!-- CI/CD Project 1 -->
-                                
-                                
+
+
                                 <!-- Add projects which are greater than 4 only (wrapper) -->
                                 <!-- <div class="extra-projects hidden"> -->
-                                    <!-- CI/CD Project 5 -->
+                                <!-- CI/CD Project 5 -->
 
 
                                 <!-- </div> -->
@@ -744,12 +749,18 @@
                 <div class="resume-content-box">
                     <div class="section-heading">
                         <p class="glassy-tag-exp">CAREER</p>
-                        <h2><span>My </span><span>Resume</span></h2>
+                        <h2><span>My </span><span class="last-name">Resume</span></h2>
                         <p>A snapshot of my professional journey.</p>
                     </div>
+                </div>
+                <div class="resume-box">
                     <div class="resume-content-description">
                         <div class="page-icon-for-resume">
-                            <i></i>
+                            <p class="glassy-tag-exp resume-doc-image">
+                                <span class="material-symbols-outlined">
+                                    description
+                                </span>
+                            </p>
                         </div>
                         <p class="resume-title">Get My Resume</p>
                         <p class="resume-text-display">
@@ -760,12 +771,14 @@
                             <button class="show-resume-online">Show Online</button>
                         </div>
                     </div>
-                </div>
-                <div id="certification-box">
-                    <h4 class="certication-title">Certifications</h4>
-                    <p>AWS Solutions Architect Pro</p>
-                    <p>CKA – Kubernetes Admin</p>
-                    <p>Terraform Associate</p>
+                    <div id="certification-box">
+                        <h4 class="certication-title">Certifications</h4>
+                        <div class="certification-list">
+                            <p><span>●</span> AWS Solutions Architect Pro</p>
+                            <p><span>●</span> CKA – Kubernetes Admin</p>
+                            <p><span>●</span> Terraform Associate</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -773,11 +786,84 @@
             <div class="content-alignment">
                 <div class="section-heading">
                     <p class="glassy-tag-exp">GET IN TOUCH</p>
-                    <h2><span>Let's </span><span>Connect</span></h2>
+                    <h2><span>Let's </span><span class="last-name">Connect</span></h2>
                     <p>Open to opportunities, collaborations & interesting conversations</p>
+                </div>
+                <div class="connection-links">
+
+                    <div id="email-box" class="social-boxes">
+                        <div class="social-icon-box">
+                            <p class="glassy-tag-exp social-icon-1">
+                                <i class="fa-regular fa-envelope"></i>
+                            </p>
+                        </div>
+                        <div class="social-content-box">
+                            <p class="social-media-title">Email</p>
+                            <p class="social-id">hitanshuy76@gmail.com</p>
+                        </div>
+                        <div class="arrow-btn-box">
+                            <span class="material-symbols-outlined">
+                                arrow_forward
+                            </span>
+                        </div>
+                    </div>
+
+                    <div id="github-box" class="social-boxes">
+                        <div class="social-icon-box">
+                            <p class="glassy-tag-exp social-icon-2">
+                                <i class="fa-brands fa-github"></i>
+                            </p>
+                        </div>
+                        <div class="social-content-box">
+                            <p class="social-media-title">GitHub</p>
+                            <p class="social-id">github.com/hitanshuyadav</p>
+                        </div>
+                        <div class="arrow-btn-box">
+                            <span class="material-symbols-outlined">
+                                arrow_forward
+                            </span>
+                        </div>
+                    </div>
+
+                    <div id="linkedin-box" class="social-boxes">
+                        <div class="social-icon-box">
+                            <p class="glassy-tag-exp social-icon-3">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </p>
+                        </div>
+                        <div class="social-content-box">
+                            <p class="social-media-title">linkedin</p>
+                            <p class="social-id">linkedin.com/in/hitanshu-yadav-b0467a38a</p>
+                        </div>
+                        <div class="arrow-btn-box">
+                            <span class="material-symbols-outlined">
+                                arrow_forward
+                            </span>
+                        </div>
+                    </div>
+
+                    <div id="medium-box" class="social-boxes">
+                        <div class="social-icon-box">
+                            <p class="glassy-tag-exp social-icon-4">
+                                <i class="fa-brands fa-medium"></i>
+                            </p>
+                        </div>
+                        <div class="social-content-box">
+                            <p class="social-media-title">Medium</p>
+                            <p class="social-id">@hitanshuy76</p>
+                        </div>
+                        <div class="arrow-btn-box">
+                            <span class="material-symbols-outlined">
+                                arrow_forward
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <footer>
+
+        </footer>
     </div>
 </body>
 <script src="./app.js"></script>

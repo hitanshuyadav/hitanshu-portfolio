@@ -62,6 +62,35 @@ body {
     display: none;
 }
 
+.back-to-top {
+    /* border: 2px solid red; */
+    position: fixed;
+    bottom: 5%;
+    right: 2%;
+    z-index: 2;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--clr-accent), var(--clr-accent-2));
+    color: #080c14;
+    font-weight: bolder;
+    box-shadow: 0 4px 20px rgba(var(--clr-accent-rgb), 0.4);
+    transition: all .5s ease;
+    cursor: pointer;
+}
+
+.back-to-top:hover {
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 8px 28px rgba(var(--clr-accent-rgb), 0.55);
+}
+
+.back-to-top span {
+    font-size: 2rem;
+
+}
+
 .content-alignment {
     width: min(80%, 1200px);
 }
@@ -124,45 +153,42 @@ nav {
     padding: 5px 0;
     cursor: pointer;
     position: relative;
-    overflow-x: hidden;
+    display: inline-block;
+    transition: color 0.25s ease;
 }
 
-.section-list a:before,
 .section-list a::after {
     content: '';
     position: absolute;
-    height: 2px;
-    background-color: var(--clr-accent);
-    width: 0;
+    left: 50%;
     bottom: 0;
-    left: 50%;
-    right: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--clr-accent), var(--clr-accent-2));
+    transform: translateX(-50%);
+    transition: width 0.25s var(--ease-smooth), opacity 0.25s ease;
+    opacity: 0;
 }
 
-.section-list a:hover::before {
-    left: 50%;
-    right: 50%;
-}
-
-.section-list a:hover::after {
-    left: 0;
-    right: 0;
+.section-list a:hover::after,
+.section-list a:focus-visible::after {
     width: 100%;
-    animation: bounce .2s linear forwards;
+    opacity: 1;
 }
 
-@keyframes bounce {
-    from {
-        transform: translate(-100%);
-    }
-
-    to {
-        transform: translate(0);
-    }
-}
-
-.section-list a:hover {
+.section-list a:hover,
+.section-list a:focus-visible {
     color: white;
+}
+
+.section-list a.active-section {
+    color: white;
+    font-weight: 700;
+}
+
+.section-list a.active-section::after {
+    width: 100%;
+    opacity: 1;
 }
 
 .nav-shortcut-link a {
@@ -180,10 +206,9 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: var(--nav-h) 0;
+    padding: var(--nav-h) 0 7rem 0;
     /* background-color: gray; */
     position: relative;
-
 }
 
 #hero-grid {
@@ -365,7 +390,7 @@ nav {
 
 .scroll-section-displayer {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -892,13 +917,17 @@ hr {
     margin: 1rem 0;
 }
 
-#terraform-projects, #docker-projects, #serverless-projects, #cicd-projects {
+#terraform-projects,
+#docker-projects,
+#serverless-projects,
+#cicd-projects {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
 }
 
-.terraform-proj, .docker-proj {
+.terraform-proj,
+.docker-proj {
     /* border: 2px solid green; */
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.04);
@@ -910,3 +939,179 @@ hr {
     padding: 1px;
 }
 
+#resume-section {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 8rem 0;
+}
+
+.resume-box {
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-auto-rows: min-content;
+    gap: 1rem;
+}
+
+.resume-content-description {
+    /* border: 2px solid yellow; */
+    padding: 5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
+    font-family: var(--font-sans);
+    border: 1px solid var(--clr-border);
+}
+
+.resume-doc-image {
+    /* border: 2px solid lime; */
+    border-radius: 15px;
+    display: flex;
+    padding: 10px;
+}
+
+.resume-doc-image span {
+    font-size: 3rem;
+}
+
+.resume-title {
+    font-size: 1.6rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.resume-text-display {
+    color: var(--clr-text-2);
+}
+
+.resume-online-download {
+    /* border: 2px solid red; */
+    padding: 10px 20px;
+    margin: 1rem 0;
+}
+
+.resume-online-download button {
+    padding: .8rem 2rem;
+    background: linear-gradient(135deg, var(--clr-accent), var(--clr-accent-2));
+    border-radius: 30px;
+    font-size: large;
+    font-weight: 700;
+    margin: 0 10px;
+    cursor: pointer;
+    border: 1px solid #00c8f8;
+}
+
+.resume-online-download .show-resume-online {
+    color: var(--clr-accent);
+    background: transparent;
+}
+
+#certification-box {
+    /* border: 2px solid yellow; */
+    background-color: rgba(255, 255, 255, 0.04);
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+#certification-box h4 {
+    font-size: 1.5rem;
+    margin: 0;
+    text-shadow: 0 0 8px white;
+}
+
+.certification-list {
+    /* border: 2px solid red; */
+    margin: 2rem 0;
+    color: var(--clr-text-2);
+}
+
+.certification-list span {
+    margin-right: 5px;
+}
+
+.certification-list p:first-child span {
+    color: rgb(255, 217, 0);
+}
+
+.certification-list p:nth-child(2) span {
+    color: magenta;
+}
+
+.certification-list p:nth-child(3) span {
+    color: red;
+}
+
+#contact-section {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 0 10rem 0;
+    background-color: var(--clr-bg-2);
+}
+
+.connection-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    padding: 0 10rem;
+    /* border: 2px solid red; */
+}
+
+.social-boxes {
+    /* border: 2px solid yellow; */
+    border-radius: 20px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.04);
+    font-family: var(--font-sans);
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.social-boxes:hover {
+    transform: scale(1.02) translateY(-5px);
+}
+
+.social-icon-box i {
+    font-size: x-large;
+}
+
+.social-content-box {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.social-content-box p {
+    margin: 0;
+}
+
+.social-media-title {
+    color: var(--clr-text-3);
+    text-transform: uppercase;
+    font-size: small;
+    font-weight: 700;
+}
+
+.social-id {
+    font-weight: 600;
+}
+
+.arrow-btn-box {
+    /* border: 2px solid lime; */
+    display: flex;
+    align-items: center;
+}
+
+.social-icon-1, .social-icon-2, .social-icon-3, .social-icon-4 {
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
