@@ -3,6 +3,7 @@ let viewLessSkills = document.querySelector(".view-less");
 let viewMoreProjects = document.querySelector(".view-more-projects");
 let viewLessProjects = document.querySelector(".view-less-projects");
 let extraProjects = document.querySelectorAll(".extra-projects");
+const noProjectsDisplay = document.querySelector(".no-projects");
 
 const wrapSkills = () => {
     document.querySelectorAll(".tech-stack-cards").forEach((elem, index) => {
@@ -16,15 +17,15 @@ const switchProj = (i = 0) => {
         elem.style.display = "";
         if (index == i) {
             if (elem.children.length === 0) {
-                document.querySelector(".no-projects").classList.remove("hidden");
+                noProjectsDisplay.classList.remove("hidden");
                 viewMoreProjects.classList.add("hidden");
             }
             else if (elem.children.length < 4) {
-                document.querySelector(".no-projects").classList.add("hidden");
+                noProjectsDisplay.classList.add("hidden");
                 viewMoreProjects.classList.add("hidden");
             }
             else {
-                document.querySelector(".no-projects").classList.add("hidden");
+                noProjectsDisplay.classList.add("hidden");
                 viewMoreProjects.classList.remove("hidden");
             }
             return;
