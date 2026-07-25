@@ -81,8 +81,15 @@ wrapSkills();
 switchProj();
 projectNav();
 
+let clickedSectionLink = null;
+let sectionNavLockUntil = 0;
+
 sectionLinks.forEach((link) => {
-    link.addEventListener("click", () => setActiveSectionLink(link));
+    link.addEventListener("click", () => {
+        clickedSectionLink = link;
+        sectionNavLockUntil = Date.now() + 800;
+        setActiveSectionLink(link);
+    });
 });
 
 let hasScrolledPastHome = false;
@@ -93,6 +100,8 @@ const clearActiveSectionLink = () => {
 
 const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
+        if (Date.now() < sectionNavLockUntil) return;
+
         if (!hasScrolledPastHome && entry.target.id === "about-section") {
             clearActiveSectionLink();
             return;
@@ -115,6 +124,7 @@ window.addEventListener("scroll", () => {
         hasScrolledPastHome = true;
     } else {
         clearActiveSectionLink();
+        clickedSectionLink = null;
     }
 }, { once: false });
 
@@ -156,3 +166,75 @@ const socialMediaRedirects = () => {
 }
 
 socialMediaRedirects();
+
+const enhanceUI = () => {
+    const projectCards = document.querySelectorAll(".major-project-cards");
+    const skillGroups = document.querySelectorAll(".tech-skill-used");
+    const allTechnicalProjects = document.querySelectorAll(".evergreen-projects");
+    const allTechnicalSkills = document.querySelectorAll(".all-technical-projects .tech-skill-used");
+    const socialMediaBoxes = document.querySelectorAll(".social-boxes");
+    const iconRotate = document.querySelectorAll(".social-icon-box");
+    const socialId = document.querySelectorAll(".social-id");
+    const arrowBtn = document.querySelectorAll(".arrow-btn-box");
+
+    // Major Projects Hover Effects
+    projectCards.forEach((card, index) => {
+        const skillGroup = skillGroups[index];
+
+        if (!skillGroup) return;
+
+        card.addEventListener("mouseenter", () => {
+            skillGroup.querySelectorAll("p").forEach((el) => {
+                el.classList.add("glassy-tag-exp");
+                el.style.fontFamily = "var(--font-sans)";
+            });
+        });
+
+        card.addEventListener("mouseleave", () => {
+            skillGroup.querySelectorAll("p").forEach((el) => {
+                el.classList.remove("glassy-tag-exp");
+            });
+        });
+    });
+
+    // Technical Projects Hover Effects 
+    allTechnicalProjects.forEach((card, index) => {
+        const skillGroup = allTechnicalSkills[index];
+
+        if (!skillGroup) return;
+
+        card.addEventListener("mouseenter", () => {
+            skillGroup.querySelectorAll("p").forEach((el) => {
+                el.classList.add("glassy-tag-exp");
+                el.style.fontFamily = "var(--font-sans)";
+            });
+        });
+
+        card.addEventListener("mouseleave", () => {
+            skillGroup.querySelectorAll("p").forEach((el) => {
+                el.classList.remove("glassy-tag-exp");
+            });
+        });
+    });
+
+    // Contact Section Hover Effects
+    socialMediaBoxes.forEach((elem, index) => {
+        const icon = iconRotate[index];
+        const sid = socialId[index];
+        const arrow = arrowBtn[index];
+
+        elem.addEventListener("mouseenter", () => {
+            icon.style.transform = "rotate(-5deg)";
+            sid.style.color = "var(--clr-accent)";
+            arrow.style.color = "var(--clr-accent)";
+        });
+        
+        elem.addEventListener("mouseleave", () => {
+            icon.style.transform = "rotate(0deg)";
+            sid.style.color = "";
+            arrow.style.color = "";
+        });
+    })
+};
+
+enhanceUI();
