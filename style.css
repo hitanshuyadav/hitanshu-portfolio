@@ -102,6 +102,12 @@ body {
 
 }
 
+#parent {
+    /* border: 2px solid red; */
+    overflow-x: hidden;
+    width: 100%;
+}
+
 .content-alignment {
     width: min(80%, 1200px);
 }
@@ -119,7 +125,7 @@ nav {
     background-color: #080c1494;
     backdrop-filter: blur(25px);
     z-index: 9;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 1px rgba(0, 200, 240, 0.06); 
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 1px rgba(0, 200, 240, 0.06);
 }
 
 .navigation-bar {
@@ -269,8 +275,8 @@ nav {
 }
 
 .hero-content .status span span {
-    color: lime;
-    font-size: 1.2rem;
+    color: rgb(0, 218, 0);
+    font-size: 1rem;
     margin: 1px 5px;
 }
 
@@ -356,6 +362,9 @@ nav {
 
 .hero-profile-section {
     position: relative;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
     /* border: 2px solid lime; */
 }
 
@@ -506,11 +515,13 @@ nav {
 .section-heading h2 {
     margin: 0;
     font-size: 3rem;
+    text-align: center;
 }
 
 .section-heading p:last-child {
     color: var(--clr-text-2);
     margin: 0;
+    text-align: center;
 }
 
 .about-section-content-box {
@@ -728,15 +739,22 @@ strong {
 
 .skill-card {
     background-color: rgba(255, 255, 255, 0.059);
+    border: 1px solid rgba(36, 36, 36, 0.803);
     border-radius: 20px;
     padding: 5px 1rem;
     font-size: small;
     margin: 0;
     color: var(--clr-text-2);
+    transition: all .2s ease;
+}
+
+.skill-card:hover {
+    background: #00c6f809;
+    border: 1px solid rgba(var(--clr-accent-rgb), 0.2);
+    color: var(--clr-accent);
 }
 
 .no-projects {
-    /* border: 2px solid red; */
     text-align: center;
 }
 
@@ -748,7 +766,6 @@ strong {
 }
 
 .wrapper-btns {
-    /* border: 2px solid yellow; */
     margin: 2rem 0;
     display: flex;
     justify-content: end;
@@ -765,7 +782,6 @@ strong {
 }
 
 #projects-section {
-    /* border: 2px solid red; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -773,7 +789,6 @@ strong {
 }
 
 .major-project-heading {
-    /* border: 2px solid red; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -800,7 +815,6 @@ strong {
 }
 
 .major-project-section {
-    /* border: 2px solid red; */
     margin: 1rem 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -855,12 +869,10 @@ strong {
 }
 
 .project-status-time {
-    /* border: 2px solid greenyellow; */
     text-align: end;
 }
 
 .project-card-timeline {
-    /* border: 2px solid red; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -926,10 +938,10 @@ hr {
     font-size: smaller;
     padding: 2px 5px;
     border-radius: 5px;
+    transition: all .3s ease;
 }
 
 .project-demo-links {
-    /* border: 1px solid red; */
     padding: 2rem 0;
 }
 
@@ -943,6 +955,14 @@ hr {
     font-size: small;
     font-weight: 700;
     margin-right: .3rem;
+    transition: all .3s ease;
+}
+
+.project-demo-links a:hover {
+    background: #00c6f80a;
+    border: 1px solid rgba(var(--clr-accent-rgb), 0.2);
+    color: var(--clr-accent);
+    font-family: var(--font-sans);
 }
 
 .technical-projects {
@@ -999,8 +1019,8 @@ hr {
 }
 
 .terraform-proj,
-.docker-proj, 
-.serverless-proj, 
+.docker-proj,
+.serverless-proj,
 .cicd-proj {
     /* border: 2px solid green; */
     padding: 1rem;
@@ -1010,7 +1030,10 @@ hr {
     transition: all .4s ease;
 }
 
-.terraform-proj:hover, .docker-proj:hover, .serverless-proj, .cicd-proj {
+.terraform-proj:hover,
+.docker-proj:hover,
+.serverless-proj,
+.cicd-proj {
     border: 1px solid #00c6f832;
     border-top: 1px solid var(--clr-accent);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 1px rgba(0, 200, 240, 0.06);
@@ -1068,6 +1091,7 @@ hr {
 
 .resume-text-display {
     color: var(--clr-text-2);
+    text-align: center;
 }
 
 .resume-online-download {
@@ -1158,7 +1182,7 @@ hr {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.2rem;
-    padding: 0 10rem;
+    width: 100%;
     /* border: 2px solid red; */
 }
 
@@ -1220,7 +1244,10 @@ hr {
     transition: all .5s ease;
 }
 
-.social-icon-1, .social-icon-2, .social-icon-3, .social-icon-4 {
+.social-icon-1,
+.social-icon-2,
+.social-icon-3,
+.social-icon-4 {
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -1280,13 +1307,17 @@ footer {
     transform: translateY(-2px);
 }
 
-.navigation-links, .contact-links, .project-links {
+.navigation-links,
+.contact-links,
+.project-links {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.navigation-links a, .contact-links a, .project-links a {
+.navigation-links a,
+.contact-links a,
+.project-links a {
     color: var(--clr-text-3);
     font-size: .9rem;
     text-decoration: none;
@@ -1295,11 +1326,335 @@ footer {
     transition: all .3s ease;
 }
 
-.navigation-links a:hover, .contact-links a:hover, .project-links a:hover {
+.navigation-links a:hover,
+.contact-links a:hover,
+.project-links a:hover {
     color: var(--clr-accent);
 }
 
-.navigation-links h5, .contact-links h5, .project-links h5 {
+.nav-shortcut-link i {
+    display: none;
+}
+
+@media (min-width: 1920px) {
+    .content-alignment {
+        width: min(90%, 2082px);
+    }
+}
+
+@media (max-width: 992px) {
+    .content-alignment {
+        width: min(90%, 800px);
+    }
+
+    nav {
+        height: auto;
+        padding: 0.75rem 0;
+    }
+
+    .navigation-bar {
+        gap: 1rem;
+        /* border: 2px solid red; */
+        justify-content: end;
+        width: 100%;
+        padding: 1rem 3rem;
+    }
+
+    .section-list {
+        display: none;
+    }
+
+    .redirect-sections {
+        flex-direction: column;
+        align-items: end;
+        justify-content: end;
+        width: 100%;
+    }
+
+    .nav-shortcut-link a,
+    .nav-shortcut-link i {
+        margin-right: 1rem;
+    }
+
+
+    .nav-shortcut-link i {
+        display: inline;
+        font-size: large;
+    }
+
+    .about-section-content-box,
+    .major-project-section,
+    .resume-box {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-content,
+    .hero-intro-profile,
+    .about-summary,
+    .major-project-cards,
+    .resume-content-description,
+    .resume-doc-image,
+    .social-boxes {
+        width: 100%;
+    }
+
+    .hero-content {
+        align-items: center;
+        text-align: center;
+        padding: 0 0 1rem 0;
+    }
+
+    .hero-intro-box {
+        flex-direction: column-reverse;
+    }
+
+    .hero-intro-profile {
+        justify-content: center;
+    }
+
+    .hero-content .status {
+        justify-content: center;
+    }
+
+    .hero-content .title-name {
+        font-size: 3.5rem;
+    }
+
+    .hero-profile-image {
+        padding: 8rem 8rem;
+    }
+
+    .small-image {
+        padding: 2.7rem;
+    }
+
+    .hero-nav-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .projects-section-btn,
+    .contact-section-btn {
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .about-section-content-box,
+    .connection-links,
+    .footer-content {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .about-summary {
+        /* border: 2px solid red; */
+        width: fit-content;
+        padding: 3rem;
+    }
+
+
+    .tech-stack-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .major-project-section,
+    #terraform-projects,
+    #docker-projects,
+    #serverless-projects,
+    #cicd-projects {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .major-project-heading p,
+    .texhnical-project-heading {
+        text-align: center;
+        display: flex;
+    }
+
+    .major-project-cards {
+        width: fit-content;
+    }
+
+    .resume-content-description {
+        /* border: 2px solid yellow; */
+        width: fit-content;
+        padding: 3rem 7rem;
+        text-align: center;
+    }
+
+    .resume-doc-image {
+        display: flex;
+        justify-content: center;
+    }
+
+    .skill-tags {
+        justify-content: start;
+    }
+
+    .connection-links {
+        place-items: center;
+    }
+
+    #contact-section {
+        padding: 3rem 0 6rem 0;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content .status {
+        display: none;
+    }
+    .hero-content .title-name {
+        font-size: 2.8rem;
+    }
+
+    .prof-msg,
+    .tagline,
+    .project-description,
+    .resume-text-display,
+    .social-media-title,
+    .navigation-links a,
+    .contact-links a,
+    .project-links a {
+        font-size: 0.95rem;
+    }
+
+    .image-supporter-1 {
+        width: fit-content;
+    }
+
+    .hero-profile-image {
+        padding: 6rem 6rem;
+    }
+
+    .about-summary {
+        padding: 1.5rem;
+    }
+
+    .tech-stack-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .social-boxes {
+        padding: 1rem;
+    }
+
+    .small-image {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 495px) {
+    html {
+        font-size: small;
+    }
+
+    .back-to-top {
+        user-select: none;
+    }
+
+    .content-alignment {
+        width: min(90%, 450px);
+    }
+
+    .projects-section-btn,
+    .contact-section-btn {
+        padding: 1rem 2rem;
+    }
+
+    .major-project-section,
+    #terraform-projects,
+    #docker-projects,
+    #serverless-projects,
+    #cicd-projects {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content .title-name {
+        font-size: 2.8rem;
+    }
+
+    .prof-msg,
+    .tagline,
+    .project-description,
+    .resume-text-display,
+    .social-media-title,
+    .navigation-links a,
+    .contact-links a,
+    .project-links a {
+        font-size: 0.95rem;
+    }
+
+    .image-supporter-1 {
+        width: fit-content;
+    }
+
+    .hero-profile-image {
+        padding: 6rem 6rem;
+    }
+
+    .about-summary {
+        padding: 1.5rem;
+    }
+
+    .tech-stack-content {
+        grid-template-columns: 1fr;
+    }
+
+    .technical-proj-redirect-bar {
+        /* border: 2px solid red; */
+        position: relative;
+    }
+
+    .technical-projects-tech-section {
+        /* border: 2px solid lime; */
+        position: relative;
+        flex-wrap: wrap;
+    }
+
+    .resume-content-description {
+        width: fit-content;
+        padding: 3rem;
+        text-align: center;
+    }
+
+    .resume-online-download button {
+        margin-bottom: 1rem;        
+    }
+
+    .connection-links {
+        place-items: center;
+    }
+
+    .small-image {
+        padding: 2rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bar {
+        flex-direction: column;
+    }
+
+    .footer-bar p {
+        font-size: x-small;
+        text-align: center;
+    }
+}
+
+.navigation-links h5,
+.contact-links h5,
+.project-links h5 {
     text-transform: uppercase;
 }
 
