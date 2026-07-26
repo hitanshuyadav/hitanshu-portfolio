@@ -258,3 +258,31 @@ const revealOnScroll = () => {
 
 enhanceUI();
 revealOnScroll();
+
+const sidebarWrapper = () => {
+    const sidebar = document.querySelector("aside");
+    const overlay = document.querySelector(".overlay");
+
+    document.querySelector(".fa-list").addEventListener("click", () => {
+        sidebar.style.animation = "open-side .1s linear forwards";
+        overlay.classList.remove("hidden");
+    })
+    document.querySelector(".fa-x").addEventListener("click", () => {
+        sidebar.style.animation = "close-side .1s linear forwards";
+        overlay.classList.add("hidden");
+    })
+    overlay.addEventListener("click", () => {
+        sidebar.style.animation = "close-side .1s linear forwards";
+        overlay.classList.add("hidden");
+    })
+
+    document.querySelectorAll(".clicked").forEach(elem => {
+        elem.addEventListener("click", () => {
+            sidebar.style.animation = "close-side .1s linear forwards";
+            overlay.classList.add("hidden");
+        })
+    })
+
+}
+
+sidebarWrapper();

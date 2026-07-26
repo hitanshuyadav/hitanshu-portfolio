@@ -102,8 +102,76 @@ body {
 
 }
 
-#parent {
+.overlay {
+    background-color: rgba(26, 25, 25, 0.486);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    z-index: 3;
+    height: 100vh;
+    width: 100vw;
+}
+
+aside {
+    position: fixed;
+    background-color: var(--clr-bg-2);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    z-index: 10;
+    width: 80%;
+    transform: translateX(100%);
+}
+
+.sidebar {
     /* border: 2px solid red; */
+    width: 100%;
+    padding: 2.5rem;
+    transition: all .5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar-content {
+    /* border: 2px solid lime; */
+    display: flex;
+    flex-direction: column;
+    margin: 3rem 0;
+}
+
+.sidebar-content a {
+    text-decoration: none;
+    color: var(--clr-text-2);
+    margin: 1rem 0;
+    font-size: medium;
+}
+
+.sidebar-btn-link {
+
+}
+
+.close-sidebar {
+    /* border: 2px solid yellow; */
+    text-align: end;
+    color: var(--clr-text-2);
+}
+
+.close-sidebar i {
+    cursor: pointer;
+}
+
+@keyframes open-side {
+    from {transform: translateX(100%);}
+    to {transform: translateX(0);}
+}
+
+@keyframes close-side {
+    from {transform: translateX(0);}
+    to {transform: translateX(100%);}
+}
+
+#parent {
     overflow-x: hidden;
     width: 100%;
 }
@@ -1563,6 +1631,10 @@ footer {
 
     .content-alignment {
         width: min(90%, 450px);
+    }
+
+    .profile-floating-skills {
+        font-size: smaller;
     }
 
     .projects-section-btn,
