@@ -1,3 +1,6 @@
+/* -----------------------------
+   Theme variables and design tokens
+----------------------------- */
 :root {
     --clr-bg: #080c14;
     --clr-bg-2: #0c1220;
@@ -111,6 +114,9 @@ body {
     width: 100vw;
 }
 
+/* -----------------------------
+   Sidebar and overlay layout
+----------------------------- */
 aside {
     position: fixed;
     background-color: var(--clr-bg-2);
@@ -167,6 +173,9 @@ aside {
     to {transform: translateX(100%);}
 }
 
+/* -----------------------------
+   Main container and navigation
+----------------------------- */
 #parent {
     overflow-x: hidden;
     width: 100%;
@@ -291,6 +300,9 @@ nav {
 }
 
 
+/* -----------------------------
+   Hero section styles
+----------------------------- */
 #hero-section {
     /* border: 2px solid green; */
     display: flex;
@@ -547,6 +559,12 @@ nav {
     font-size: medium;
 }
 
+/* -----------------------------
+   Content sections styling
+----------------------------- */
+/* -----------------------------
+   About section styles
+----------------------------- */
 #about-section {
     background-color: var(--clr-bg-2);
     /* border: 2px solid red; */
@@ -691,6 +709,9 @@ strong {
     color: var(--clr-text-3);
 }
 
+/* -----------------------------
+   Skills section styles
+----------------------------- */
 #skills-section {
     display: flex;
     justify-content: center;
@@ -845,6 +866,9 @@ strong {
     border-radius: 10px;
 }
 
+/* -----------------------------
+   Projects section styles
+----------------------------- */
 #projects-section {
     display: flex;
     justify-content: center;
@@ -1109,6 +1133,9 @@ hr {
     padding: 1px;
 }
 
+/* -----------------------------
+   Resume section styles
+----------------------------- */
 #resume-section {
     display: flex;
     justify-content: center;
@@ -1235,6 +1262,9 @@ hr {
     color: red;
 }
 
+/* -----------------------------
+   Contact section styles
+----------------------------- */
 #contact-section {
     display: flex;
     justify-content: center;

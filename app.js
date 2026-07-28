@@ -1,3 +1,6 @@
+// -----------------------------
+// Portfolio UI element references
+// -----------------------------
 let viewMoreSkills = document.querySelector(".view-more");
 let viewLessSkills = document.querySelector(".view-less");
 let viewMoreProjects = document.querySelector(".view-more-projects");
@@ -7,11 +10,17 @@ const noProjectsDisplay = document.querySelector(".no-projects");
 const sectionLinks = document.querySelectorAll(".section-list a");
 const sectionsToObserve = document.querySelectorAll("#about-section, #skills-section, #projects-section, #resume-section, #contact-section");
 
+// -----------------------------
+// Section navigation helpers
+// -----------------------------
 const setActiveSectionLink = (activeLink) => {
     sectionLinks.forEach((link) => link.classList.remove("active-section"));
     activeLink.classList.add("active-section");
 }
 
+// -----------------------------
+// Skills section expand/collapse
+// -----------------------------
 const wrapSkills = () => {
     document.querySelectorAll(".tech-stack-cards").forEach((elem, index) => {
         if (index > 5)
@@ -19,6 +28,9 @@ const wrapSkills = () => {
     })
 }
 
+// -----------------------------
+// Projects section switching logic
+// -----------------------------
 const switchProj = (i = 0) => {
     document.querySelectorAll(".techwise-projects").forEach((elem, index) => {
         elem.style.display = "";
@@ -43,6 +55,9 @@ const switchProj = (i = 0) => {
     })
 }
 
+// -----------------------------
+// Project navigation buttons
+// -----------------------------
 const projectNav = () => {
     document.querySelectorAll(".proj-nav-bar").forEach((elem, ind) => {
         elem.addEventListener("click", () => {
@@ -56,6 +71,9 @@ const projectNav = () => {
     })
 }
 
+// -----------------------------
+// Show/hide extra project cards
+// -----------------------------
 const wrapProjects = (ind) => {
     viewMoreProjects.addEventListener("click", () => {
         extraProjects.forEach((elem, index) => {
@@ -79,10 +97,14 @@ const wrapProjects = (ind) => {
     })
 }
 
+// Initialize the portfolio sections
 wrapSkills();
 switchProj();
 projectNav();
 
+// -----------------------------
+// Smooth section link activation
+// -----------------------------
 let clickedSectionLink = null;
 let sectionNavLockUntil = 0;
 
@@ -96,6 +118,9 @@ sectionLinks.forEach((link) => {
 
 let hasScrolledPastHome = false;
 
+// -----------------------------
+// Observer for active section tracking
+// -----------------------------
 const clearActiveSectionLink = () => {
     sectionLinks.forEach((link) => link.classList.remove("active-section"));
 };
@@ -132,6 +157,9 @@ window.addEventListener("scroll", () => {
 
 sectionsToObserve.forEach((section) => sectionObserver.observe(section));
 
+// -----------------------------
+// Skills expand/collapse behavior
+// -----------------------------
 viewMoreSkills.addEventListener("click", () => {
     viewMoreSkills.style.display = "none";
     viewLessSkills.classList.remove("hidden");
@@ -146,6 +174,9 @@ viewLessSkills.addEventListener("click", () => {
     wrapSkills();
 })
 
+// -----------------------------
+// Social and navigation redirects
+// -----------------------------
 const socialMediaRedirects = () => {
     document.getElementById("email-box").addEventListener("click", () => {
         window.open("mailto:hitanshuy76@gmail.com");
@@ -169,6 +200,9 @@ const socialMediaRedirects = () => {
 
 socialMediaRedirects();
 
+// -----------------------------
+// UI enhancement behaviors
+// -----------------------------
 const enhanceUI = () => {
     const projectCards = document.querySelectorAll(".major-project-cards");
     const skillGroups = document.querySelectorAll(".tech-skill-used");
@@ -239,26 +273,56 @@ const enhanceUI = () => {
     })
 };
 
+// -----------------------------
+// Scroll reveal behavior
+// -----------------------------
 const revealOnScroll = () => {
     const elements = document.querySelectorAll(".reveal-on-scroll");
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target);
+    if (elements.length === 0) return;
+
+    const revealElement = (element) => {
+        if (!element.classList.contains("is-visible")) {
+            element.classList.add("is-visible");
+        }
+    };
+
+    const revealVisibleElements = () => {
+        elements.forEach((element) => {
+            const rect = element.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
+                revealElement(element);
             }
         });
-    }, {
-        threshold: 0.15
-    });
+    };
 
-    elements.forEach((element) => observer.observe(element));
+    if (typeof IntersectionObserver !== "undefined") {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    revealElement(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        elements.forEach((element) => observer.observe(element));
+    }
+
+    revealVisibleElements();
+    window.addEventListener("load", revealVisibleElements, { once: true });
+    window.addEventListener("scroll", revealVisibleElements, { once: false });
+    window.addEventListener("resize", revealVisibleElements, { once: false });
 };
 
 enhanceUI();
 revealOnScroll();
 
+// -----------------------------
+// Sidebar open/close behavior
+// -----------------------------
 const sidebarWrapper = () => {
     const sidebar = document.querySelector("aside");
     const overlay = document.querySelector(".overlay");
